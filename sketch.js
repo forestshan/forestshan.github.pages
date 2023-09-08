@@ -24,6 +24,8 @@ function preload() {
 
 function setup() {
 
+  pixelDensity(1);
+
   crop = 50;
   
   canx = 600;
