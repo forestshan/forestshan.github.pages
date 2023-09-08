@@ -13,19 +13,19 @@ function preload() {
 //  img = loadImage('amarillo.jpg');
   img = loadImage('grass.jpeg');
   
-  /*
+
   
   shaderblurh2 = loadShader('base.vert', 'blur.frag');
   shaderblurv2 = loadShader('base.vert', 'blur.frag');
   shaderdisp = loadShader('disp.vert', 'disp.frag');
   
-  */
+  
 }
 
 function setup() {
 
-//  pixelDensity(1);
-//  setAttributes('antialias', false);
+  pixelDensity(1);
+  setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
   setAttributes('stencil', false);
@@ -42,10 +42,10 @@ function setup() {
   canvas = createCanvas(canx, cany, WEBGL);
   canvas.id("canvas");
   
-//  rensphere = createGraphics(canx, cany, WEBGL); //
-//  renblurh2 = createGraphics(canx, cany, WEBGL); //
-//  renblurv2 = createGraphics(planex, planey, WEBGL); //
-//  rendisp2 = createGraphics(planex, planex, WEBGL); //
+  rensphere = createGraphics(canx, cany, WEBGL); //
+  renblurh2 = createGraphics(canx, cany, WEBGL); //
+  renblurv2 = createGraphics(planex, planey, WEBGL); //
+  rendisp2 = createGraphics(planex, planex, WEBGL); //
 
 }
 
@@ -63,7 +63,7 @@ function draw() {
   pop();
   
   
-  /*
+  
   rensphere.noStroke();
   rensphere.push();
   rensphere.clear();
