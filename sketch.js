@@ -52,7 +52,7 @@ function draw() {
   push();
   //clear();
   rotateY(frameCount * 0.0075 + 20);
-//  texture(img);
+  texture(img);
   sphere(650);
   pop();
   
