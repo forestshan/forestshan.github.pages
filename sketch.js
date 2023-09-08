@@ -25,6 +25,12 @@ function preload() {
 function setup() {
 
   pixelDensity(1);
+  setAttributes('antialias', false);
+  setAttributes('alpha', false);
+  setAttributes('depth', false);
+  setAttributes('stencil', false);
+  setAttributes('preserveDrawingBuffer', false);
+  setAttributes('perPixelLighting', false);
 
   crop = 50;
   
