@@ -34,11 +34,12 @@ function setup() {
   planey = cany - crop * 2;
   
   canvas = createCanvas(canx, cany, WEBGL);
+  canvas.id("canvas");
   
-  rensphere = createGraphics(canx, cany, WEBGL); //
-  renblurh2 = createGraphics(canx, cany, WEBGL); //
-  renblurv2 = createGraphics(planex, planey, WEBGL); //
-  rendisp2 = createGraphics(planex, planex, WEBGL); //
+//  rensphere = createGraphics(canx, cany, WEBGL); //
+//  renblurh2 = createGraphics(canx, cany, WEBGL); //
+//  renblurv2 = createGraphics(planex, planey, WEBGL); //
+//  rendisp2 = createGraphics(planex, planex, WEBGL); //
 
 }
 
