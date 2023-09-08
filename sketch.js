@@ -69,6 +69,7 @@ function draw() {
   sphere(650);
   pop();
   
+  /*
   //blur canvas
   renblurh2.shader(shaderblurh2);
   shaderblurh2.setUniform('tex0', canvas);
@@ -93,9 +94,9 @@ function draw() {
   
   
 //  image(rensphere2, 0, 0);
-  image(rendisp2, -rendisp2.width/2, -rendisp2.height/2, rendisp2.width, rendisp2.height);
+  image(rensphere, -rendisp2.width/2, -rendisp2.height/2, rendisp2.width, rendisp2.height);
   
-  
+  */
  
   text(round(frameRate(), 2), 20, 20);
 
