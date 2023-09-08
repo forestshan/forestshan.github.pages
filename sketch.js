@@ -52,13 +52,13 @@ function setup() {
 function draw() {
  
   
-  rensphere.noStroke();
-  rensphere.push();
-  rensphere.clear();
-  rensphere.rotateY(frameCount * 0.00015);
-  rensphere.texture(img);
-  rensphere.sphere(650);
-  rensphere.pop();
+//  rensphere.noStroke();
+//  rensphere.push();
+//  rensphere.clear();
+//  rensphere.rotateY(frameCount * 0.00015);
+//  rensphere.texture(img);
+//  rensphere.sphere(650);
+//  rensphere.pop();
   
   stroke(255);
   strokeWeight(.5)
