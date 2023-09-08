@@ -48,7 +48,7 @@ function draw() {
 //  strokeWeight(.5)
   push();
   //clear();
-  rotateY(frameCount * 0.00075 + 20);
+  rotateY(frameCount * 0.0075 + 20);
   texture(img);
   sphere(650);
   pop();
