@@ -45,13 +45,13 @@ function setup() {
 function draw() {
  
 
-  noStroke();
-//  stroke(255);
-//  strokeWeight(.5)
+//  noStroke();
+  stroke(255);
+  strokeWeight(.5)
   push();
   //clear();
   rotateY(frameCount * 0.0075 + 20);
-  texture(img);
+//  texture(img);
   sphere(650);
   pop();
   
