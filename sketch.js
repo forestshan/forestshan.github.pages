@@ -13,7 +13,7 @@ function preload() {
 //  img = loadImage('amarillo.jpg');
   img = loadImage('grass.jpeg');
   
-
+  
   
   shaderblurh2 = loadShader('base.vert', 'blur.frag');
   shaderblurv2 = loadShader('base.vert', 'blur.frag');
@@ -31,7 +31,7 @@ function setup() {
   setAttributes('stencil', false);
   setAttributes('preserveDrawingBuffer', false);
   setAttributes('perPixelLighting', false);
-
+  
   crop = 50;
   
   canx = 600;
@@ -50,13 +50,13 @@ function setup() {
 }
 
 function draw() {
- 
+  console.log(frameRate());
 
-//  noStroke();
-  stroke(0);
+  
+  stroke(255);
   strokeWeight(.5)
   push();
-  //clear();
+  clear();
   rotateY(frameCount * 0.0075 + 20);
   texture(img);
   sphere(650);
@@ -98,7 +98,7 @@ function draw() {
 //  image(rensphere2, 0, 0);
   image(rendisp2, -rendisp2.width/2, -rendisp2.height/2, rendisp2.width, rendisp2.height);
   
-  */
+  
  
 
 }
