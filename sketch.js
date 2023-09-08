@@ -27,8 +27,8 @@ function setup() {
   crop = 50;
   shift = 50;
   
-  canx = 800;
-  cany = 800;
+  canx = 400;
+  cany = 400;
   planex = canx;
   planey = cany;
   
