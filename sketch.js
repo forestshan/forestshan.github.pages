@@ -13,11 +13,11 @@ let shaderdisp;
 
 function preload() {
 //  img = loadImage('images/amarillo.jpg');
-  img = loadImage('images/grass.jpeg');
+  img = loadImage('grass.jpeg');
   
-  shaderblurh2 = loadShader('shaders/base.vert', 'shaders/blur.frag');
-  shaderblurv2 = loadShader('shaders/base.vert', 'shaders/blur.frag');
-  shaderdisp = loadShader('shaders/disp.vert', 'shaders/disp.frag');
+  shaderblurh2 = loadShader('base.vert', 'blur.frag');
+  shaderblurv2 = loadShader('base.vert', 'blur.frag');
+  shaderdisp = loadShader('disp.vert', 'disp.frag');
   
 }
 
