@@ -43,9 +43,9 @@ function setup() {
 function draw() {
  
 
-  
-  stroke(255);
-  strokeWeight(.5)
+  noStroke();
+//  stroke(255);
+//  strokeWeight(.5)
   push();
   //clear();
   rotateY(frameCount * 0.00075 + 20);
