@@ -5,9 +5,7 @@
 
 p5.disableFriendlyErrors = true; 
 
-let font;
 let crop;
-let shift;
 
 let shaderblurh;
 let shaderblurv;
@@ -26,7 +24,6 @@ function preload() {
 function setup() {
   
   crop = 50;
-  shift = 0;
   
   canx = 600;
   cany = 600;
