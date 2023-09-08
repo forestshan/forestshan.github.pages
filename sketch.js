@@ -1,19 +1,20 @@
-
-
 // fix speed, framerate
-
 
 p5.disableFriendlyErrors = true; 
 
+let font;
 let crop;
+let shift;
 
-let shaderblurh;
-let shaderblurv;
+let shaderblurh2;
+let shaderblurv2;
 let shaderdisp;
 
 function preload() {
-//  img = loadImage('images/amarillo.jpg');
+//  img = loadImage('amarillo.jpg');
   img = loadImage('grass.jpeg');
+  
+  font = loadFont('EBGaramond-Regular.ttf');
   
   shaderblurh2 = loadShader('base.vert', 'blur.frag');
   shaderblurv2 = loadShader('base.vert', 'blur.frag');
@@ -22,8 +23,11 @@ function preload() {
 }
 
 function setup() {
+
   
+
   crop = 50;
+  shift = 0;
   
   canx = 600;
   cany = 600;
@@ -31,6 +35,12 @@ function setup() {
   planey = cany - crop * 2;
   
   canvas = createCanvas(canx, cany, WEBGL);
+  
+  
+  textFont(font);
+  //fill(255,0,0);
+  textSize(32);
+  textAlign(LEFT, BOTTOM);
   
   rensphere = createGraphics(canx, cany, WEBGL); //
   renblurh2 = createGraphics(canx, cany, WEBGL); //
@@ -40,11 +50,12 @@ function setup() {
 }
 
 function draw() {
+ 
   
   rensphere.noStroke();
   rensphere.push();
   rensphere.clear();
-  rensphere.rotateY(frameCount * 0.0015);
+  rensphere.rotateY(frameCount * 0.00015);
   rensphere.texture(img);
   rensphere.sphere(650);
   rensphere.pop();
@@ -53,7 +64,7 @@ function draw() {
   strokeWeight(.5)
   push();
   //clear();
-  rotateY(frameCount * 0.0075 + 20);
+  rotateY(frameCount * 0.00075 + 20);
   texture(img);
   sphere(650);
   pop();
@@ -85,6 +96,7 @@ function draw() {
   image(rendisp2, -rendisp2.width/2, -rendisp2.height/2, rendisp2.width, rendisp2.height);
   
   
-//  text(round(frameRate(), 2), 20, 20);
+ 
+  text(round(frameRate(), 2), 20, 20);
 
 }
