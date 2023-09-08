@@ -1,4 +1,9 @@
+
+
 // fix speed, framerate
+
+
+p5.disableFriendlyErrors = true; 
 
 let font;
 let crop;
