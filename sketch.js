@@ -42,7 +42,7 @@ function draw() {
   rensphere.noStroke();
   rensphere.push();
   rensphere.clear();
-  rensphere.rotateY(frameCount * 0.00015);
+  rensphere.rotateY(frameCount * 0.0015);
   rensphere.texture(img);
   rensphere.sphere(650);
   rensphere.pop();
@@ -51,7 +51,7 @@ function draw() {
   strokeWeight(.5)
   push();
   //clear();
-  rotateY(frameCount * 0.00075 + 20);
+  rotateY(frameCount * 0.0075 + 20);
   texture(img);
   sphere(650);
   pop();
