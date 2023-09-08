@@ -46,7 +46,7 @@ function draw() {
  
 
 //  noStroke();
-  stroke(255);
+  stroke(0);
   strokeWeight(.5)
   push();
   //clear();
