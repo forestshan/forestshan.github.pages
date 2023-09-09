@@ -31,6 +31,7 @@ function setup() {
   setAttributes('stencil', false);
   setAttributes('preserveDrawingBuffer', false);
   setAttributes('perPixelLighting', false);
+  setAttributes('version', 1);
   
   crop = 50;
   
