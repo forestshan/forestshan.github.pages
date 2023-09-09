@@ -24,7 +24,7 @@ function preload() {
 
 function setup() {
 
-  pixelDensity(1);
+//  pixelDensity(1);
   setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
@@ -62,7 +62,7 @@ function draw() {
   strokeWeight(2)
   push();
 //  clear();
-  rotateY(frameCount * 0.0075 + 20);
+  rotateY(frameCount * 0.0005 + 20);
   texture(img);
   sphere(650);
   pop();
