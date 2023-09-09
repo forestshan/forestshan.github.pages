@@ -49,7 +49,7 @@ function setup() {
 //  renblurh2.id("renblurh2id")
   renblurv2 = createGraphics(planex, planey, WEBGL); //
 //  renblurv2.id("renblurv2id")
-  rendisp2 = createGraphics(planex, planex, WEBGL); //
+  rendisp2 = createGraphics(planex/2, planex/2, WEBGL); //
 //  rendisp2.id("rendisp2id")
 
 }
@@ -59,10 +59,10 @@ function draw() {
 
   
   stroke(255);
-  strokeWeight(.5)
+  strokeWeight(2)
   push();
 //  clear();
-  rotateY(frameCount * 0.00075 + 20);
+  rotateY(frameCount * 0.0075 + 20);
   texture(img);
   sphere(650);
   pop();
@@ -80,28 +80,28 @@ function draw() {
   //blur canvas
   renblurh2.shader(shaderblurh2);
   shaderblurh2.setUniform('tex0', canvas);
-  shaderblurh2.setUniform('texelSize', [1.0/width, 1.0/height]);
+  shaderblurh2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurh2.setUniform('direction', [1.0, 0.0]);
-  renblurh2.rect(0, 0, width, height);
+  renblurh2.rect(0, 0, canx, cany);
   renblurv2.shader(shaderblurv2);
-  shaderblurv2.setUniform('tex0', canvas);
-  shaderblurv2.setUniform('texelSize', [1.0/width, 1.0/height]);
+  shaderblurv2.setUniform('tex0', renblurh2);
+  shaderblurv2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurv2.setUniform('direction', [0.0, 1.0]);
-  renblurv2.rect(0, 0, width, height);
+  renblurv2.rect(0, 0, canx, cany);
   
   //disp map blur onto rensphere
   rendisp2.shader(shaderdisp);
   shaderdisp.setUniform('tex0', renblurv2);
   shaderdisp.setUniform('tex1', rensphere);
   shaderdisp.setUniform('amt', .02);
-  rendisp2.rect(0, 0, -width, -height);
+  rendisp2.rect(0, 0, -canx, -cany);
 
 //  image(rensphere2, -rensphere2.width/2, -rensphere2.height/2);
 //  image(rendisp2, -rendisp2.width/2, -rendisp2.height/2, rendisp2.width, rendisp2.height);
   
   
 //  image(rensphere2, 0, 0);
-  image(rendisp2, -rendisp2.width/2, -rendisp2.height/2, rendisp2.width, rendisp2.height);
+  image(rendisp2, -planex/2, -planey/2, planex, planey);
   
   
  
