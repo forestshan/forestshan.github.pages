@@ -43,11 +43,11 @@ function setup() {
   canvas.id("canvas");
   
   rensphere = createGraphics(canx, cany, WEBGL); //
-  rensphere.id("rensphereid")
+//  rensphere.id("rensphereid")
   renblurh2 = createGraphics(canx, cany, WEBGL); //
-  renblurh2.id("renblurh2id")
+//  renblurh2.id("renblurh2id")
   renblurv2 = createGraphics(planex, planey, WEBGL); //
-  renblurv2.id("renblurv2id")
+//  renblurv2.id("renblurv2id")
   rendisp2 = createGraphics(planex, planex, WEBGL); //
 //  rendisp2.id("rendisp2id")
 
