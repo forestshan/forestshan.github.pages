@@ -45,11 +45,11 @@ function setup() {
   
   rensphere = createGraphics(canx, cany, WEBGL); //
 //  rensphere.id("rensphereid")
-  renblurh2 = createGraphics(canx, cany, WEBGL); //
+  renblurh2 = createGraphics(canx/2, cany/2, WEBGL); //
 //  renblurh2.id("renblurh2id")
-  renblurv2 = createGraphics(planex, planey, WEBGL); //
+  renblurv2 = createGraphics(canx/2, cany/2, WEBGL); //
 //  renblurv2.id("renblurv2id")
-  rendisp2 = createGraphics(planex/2, planex/2, WEBGL); //
+  rendisp2 = createGraphics(planex, planex, WEBGL); //
 //  rendisp2.id("rendisp2id")
 
 }
@@ -82,12 +82,12 @@ function draw() {
   shaderblurh2.setUniform('tex0', canvas);
   shaderblurh2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurh2.setUniform('direction', [1.0, 0.0]);
-  renblurh2.rect(0, 0, canx, cany);
+  renblurh2.rect(0, 0, canx/2, cany/2);
   renblurv2.shader(shaderblurv2);
   shaderblurv2.setUniform('tex0', renblurh2);
   shaderblurv2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurv2.setUniform('direction', [0.0, 1.0]);
-  renblurv2.rect(0, 0, canx, cany);
+  renblurv2.rect(0, 0, canx/2, cany/2);
   
   //disp map blur onto rensphere
   rendisp2.shader(shaderdisp);
