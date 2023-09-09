@@ -16,7 +16,7 @@ function preload() {
   
   
   shaderblurh2 = loadShader('base.vert', 'blur.frag');
-//  shaderblurv2 = loadShader('base.vert', 'blur.frag');
+  shaderblurv2 = loadShader('base.vert', 'blur.frag');
   shaderdisp = loadShader('disp.vert', 'disp.frag');
   
   
@@ -61,7 +61,7 @@ function draw() {
   strokeWeight(.5)
   push();
 //  clear();
-  rotateY(frameCount * 0.0075 + 20);
+  rotateY(frameCount * 0.00075 + 20);
   texture(img);
   sphere(650);
   pop();
@@ -77,12 +77,12 @@ function draw() {
   rensphere.pop();
   
   //blur canvas
-//  renblurh2.shader(shaderblurh2);
-//  shaderblurh2.setUniform('tex0', canvas);
-//  shaderblurh2.setUniform('texelSize', [1.0/width, 1.0/height]);
-//  shaderblurh2.setUniform('direction', [1.0, 0.0]);
-//  renblurh2.rect(0, 0, width, height);
-//  renblurv2.shader(shaderblurv2);
+  renblurh2.shader(shaderblurh2);
+  shaderblurh2.setUniform('tex0', canvas);
+  shaderblurh2.setUniform('texelSize', [1.0/width, 1.0/height]);
+  shaderblurh2.setUniform('direction', [1.0, 0.0]);
+  renblurh2.rect(0, 0, width, height);
+  renblurv2.shader(shaderblurv2);
   shaderblurv2.setUniform('tex0', canvas);
   shaderblurv2.setUniform('texelSize', [1.0/width, 1.0/height]);
   shaderblurv2.setUniform('direction', [0.0, 1.0]);
