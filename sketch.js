@@ -24,8 +24,8 @@ function preload() {
 
 function setup() {
 
-//  pixelDensity(1);
-//  setAttributes('antialias', false);
+  pixelDensity(1);
+  setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
   setAttributes('stencil', false);
