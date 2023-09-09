@@ -24,7 +24,7 @@ function preload() {
 
 function setup() {
 
-//  pixelDensity(1);
+  pixelDensity(1);
   setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
@@ -35,8 +35,8 @@ function setup() {
   
   crop = 50;
   
-  canx = 600;
-  cany = 600;
+  canx = 900;
+  cany = 900;
   planex = canx - crop * 2;
   planey = cany - crop * 2;
   
@@ -62,7 +62,7 @@ function draw() {
   strokeWeight(2)
   push();
 //  clear();
-  rotateY(frameCount * 0.0005 + 20);
+  rotateY(frameCount * 0.0075 + 20);
   texture(img);
   sphere(650);
   pop();
@@ -72,7 +72,7 @@ function draw() {
   rensphere.noStroke();
   rensphere.push();
   rensphere.clear();
-  rensphere.rotateY(frameCount * 0.00015);
+  rensphere.rotateY(frameCount * 0.0015);
   rensphere.texture(img);
   rensphere.sphere(650);
   rensphere.pop();
