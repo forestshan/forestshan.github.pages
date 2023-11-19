@@ -33,6 +33,7 @@ function setup() {
   rensphere = createGraphics(canx, cany, WEBGL);
   renblurh2 = createGraphics(canx, cany, WEBGL); //
   renblurv2 = createGraphics(canx, cany, WEBGL); //
+  rendisp2 = createGraphics(planex, planex, WEBGL); //
 }
 
 function draw() {
@@ -59,7 +60,14 @@ function draw() {
   shaderblurv2.setUniform('tex0', renblurh2);
   shaderblurv2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurv2.setUniform('direction', [1.0, 0.0]);
-  renblurv2.rect(0, 0, planex, planey);
+  renblurv2.rect(0, 0, -planex, -planey);
   
-  image(rensphere, -planex/2, -planey/2, planex, planey);
+  rendisp2.shader(shaderdisp);
+  shaderdisp.setUniform('tex0', renblurv2);
+  shaderdisp.setUniform('tex1', rensphere);
+  shaderdisp.setUniform('amt', .02);
+  rendisp2.rect(0, 0, -canx, -cany);
+
+  
+  image(renblurv2, -planex/2, -planey/2, planex, planey);
 }
