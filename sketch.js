@@ -39,16 +39,14 @@ function draw() {
 //  console.log(frameRate());
   
   push();
-  rotateY(frameCount * 0.0005 + 20);
+  rotateY(frameCount * -0.0005 + 20);
   texture(img);
-  
-  stroke('white');
   sphere(1000);
   pop();
   
   rensphere.clear();
   rensphere.texture(img);
-  rensphere.strokeWeight(.5);
+  rensphere.strokeWeight(.65);
   rensphere.sphere(1000);
   rensphere.rotateY(.001);
   
@@ -56,12 +54,12 @@ function draw() {
   shaderblurh2.setUniform('tex0', rensphere);
   shaderblurh2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurh2.setUniform('direction', [0.0, 1.0]);
-  renblurh2.rect(0, 0, canx, cany);
+  renblurh2.rect(0, 0, planex, planey);
   renblurv2.shader(shaderblurv2);
   shaderblurv2.setUniform('tex0', renblurh2);
   shaderblurv2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurv2.setUniform('direction', [1.0, 0.0]);
-  renblurv2.rect(0, 0, canx, cany);
+  renblurv2.rect(0, 0, planex, planey);
   
   image(rensphere, -planex/2, -planey/2, planex, planey);
 }
