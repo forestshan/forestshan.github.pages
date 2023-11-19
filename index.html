@@ -1,47 +1,15 @@
-p5.disableFriendlyErrors = true;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
 
-let shaderblurh2;
-let shaderblurv2;
-let shaderdisp;
-
-function setup() {
-  img = loadImage('amarillox.jpg');
-  
-//  pixelDensity(1);
-  
-  crop = 50;
-  
-  canx = 500;
-  cany = 800;
-  planex = canx - crop * 2;
-  planey = cany - crop * 2;
-  
-  canvas = createCanvas(canx, cany, WEBGL);
-  
-  rensphere = createGraphics(canx, cany, WEBGL); //
-  
-  setAttributes('antialias', false);
-  setAttributes('alpha', false);
-  setAttributes('depth', false);
-  setAttributes('stencil', false);
-  setAttributes('preserveDrawingBuffer', false);
-  setAttributes('perPixelLighting', false);
-  setAttributes('version', 1);
-  gl = this._renderer.GL;
-  gl.disable(gl.DEPTH_TEST);
-  
-}
-
-function draw() {
-  td = millis();
-//  background(0);
-  
-  rensphere.strokeWeight(.5);
-  rensphere.clear();
-  rensphere.rotateY(.001);
-  rensphere.texture(img);
-  rensphere.sphere(650);
-  image(rensphere, -canx/2, -cany/2, canx, cany);
-
-  
-}
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="sketch.js"></script>
+  </body>
+</html>
