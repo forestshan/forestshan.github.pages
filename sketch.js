@@ -3,7 +3,6 @@ p5.disableFriendlyErrors = true;
 let shaderblurh2;
 let shaderblurv2;
 let shaderdisp;
-let blurcanvas;
 
 function preload() {
   img = loadImage('amarillox.jpg');
@@ -16,7 +15,7 @@ function preload() {
 
 function setup() {
   
- // pixelDensity(1);
+//  pixelDensity(1);
   
   crop = 50;
   
@@ -25,7 +24,7 @@ function setup() {
   planex = canx - crop * 2;
   planey = cany - crop * 2;
   
-  canvas = createCanvas(canx, cany, WEBGL);
+  canvas = createCanvas(canx, cany, P2D);
   
   rensphere = createGraphics(canx, cany, WEBGL); //
   renblurh2 = createGraphics(canx, cany, WEBGL); //
@@ -39,24 +38,20 @@ function setup() {
   setAttributes('preserveDrawingBuffer', false);
   setAttributes('perPixelLighting', false);
   setAttributes('version', 1);
-  gl = this._renderer.GL;
-  gl.disable(gl.DEPTH_TEST);
   
 }
 
 function draw() {
+  console.log(frameRate());
   td = millis();
 //  background(0);
-
-  noStroke();
-//  strokeWeight(1)
-  push();
-//  clear();
-  rotateY(td * 0.00005 + 20);
-  texture(img);
   
-  stroke('white');
-  sphere(650);
-  pop();
+  rensphere.strokeWeight(.5);
+  rensphere.clear();
+  rensphere.rotateY(.001);
+  rensphere.texture(img);
+  rensphere.sphere(650);
+  image(rensphere, 0, 0, canx, cany);
+
   
 }
