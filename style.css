@@ -1,32 +1,52 @@
-body {
 
-    position: fixed;
+body {
+    position: absolute;
     z-index: 999999;
-    margin: 0px;
 	font-size: 12pt;
 	font-family: 'Garamond';
-    color: white;
 }
+body span {
+		background-color: white;
+	}
 
 div {
-      margin: 60px;
+  margin: 60px;
+  width: 100vw;
 }
-	p {
+
+canvas {
+
+  max-width: 100% !important;
+  
+}
+
+
+
+p {
 		font-size: 12pt;
     width: 400px;
     margin-left: 32px;
       
   }
+	p span {
+		background-color: white;
+	}
 	h1 {
     font-size: 24pt;
     font-weight: 200;
   }
+	h1 span {
+		background-color: white;
+	}
 
 	a {
-	  color: white !important;
+	  color: black !important;
   	text-decoration: underline !important;
 	}
 
+	summary span {
+		background-color: white;
+	}
 
 details > summary {
     list-style-type: none;
@@ -38,6 +58,7 @@ details > summary::-webkit-details-marker {
 
 details > summary::before {
     content: '⸺ ';
+  		background-color: white;
 }
 
 canvas {
