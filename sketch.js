@@ -14,7 +14,7 @@ function preload() {
 }
 
 function setup() {
-  pixelDensity(1);
+//  pixelDensity(1);
   setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
@@ -24,8 +24,8 @@ function setup() {
   setAttributes('version', 1);
 
   crop = 50;
-  canx = 800;
-  cany = 1200;
+  canx = 600;
+  cany = 900;
   
   createCanvas(canx, cany);
   rensphere = createGraphics(canx, cany, WEBGL);
@@ -36,6 +36,7 @@ function draw() {
   
   rensphere.clear();
   rensphere.texture(img);
+  rensphere.strokeWeight(.5);
   rensphere.sphere(1000);
   rensphere.rotateY(.001);
   image(rensphere, 0, 0, canx, cany);
