@@ -71,5 +71,4 @@ function draw() {
   rendisp2.rect(0, 0, -canx, -cany);
 
   image(rensphere, -canx/2, -cany/2, canx, cany);
-  image(rendisp2, planex/2, -planey/2, -planex, planey);
 }
