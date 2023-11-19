@@ -1,62 +1,8 @@
-body {
-
-    position: fixed;
-    z-index: 999999;
-    margin: 0px;
-	font-size: 12pt;
-	font-family: 'Garamond';
+html, body {
+  margin: 0;
+  padding: 0;
 }
-	body span {
-		background-color: white;
-	}
-
-div {
-      margin: 60px;
-}
-	p {
-		font-size: 12pt;
-    width: 400px;
-    margin-left: 32px;
-      
-  }
-	p span {
-		background-color: white;
-	}
-	h1 {
-    font-size: 24pt;
-    font-weight: 200;
-  }
-	h1 span {
-		background-color: white;
-	}
-
-	a {
-	  color: black !important;
-  	text-decoration: underline !important;
-	}
-
-	summary span {
-		background-color: white;
-	}
-
-details > summary {
-    list-style-type: none;
-}
-
-details > summary::-webkit-details-marker {
-    display: none;
-}
-
-details > summary::before {
-    content: '⸺ ';
-  		background-color: white;
-}
-
 canvas {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -10;
-  scale: 1;
+  display: block;
+  
 }
