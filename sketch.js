@@ -47,14 +47,14 @@ function setup() {
 }
 
 function draw() {
-  console.log(frameRate());
+  td = millis();
 //  background(0);
 
 //  noStroke();
 //  strokeWeight(1)
   push();
 //  clear();
-  rotateY(millis() * 0.000005 + 20);
+  rotateY(td * 0.000005 + 20);
   texture(img);
   
   stroke('white');
@@ -68,7 +68,7 @@ function draw() {
   rensphere.noStroke();
   rensphere.push();
   rensphere.clear();
-  rensphere.rotateY(millis() * 0.000005);
+  rensphere.rotateY(td * 0.000005);
   rensphere.texture(img);
   rensphere.sphere(650);
   rensphere.pop();
