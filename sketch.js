@@ -29,6 +29,12 @@ function setup() {
   renblurh2 = createGraphics(canx/2, cany/2, WEBGL); //
   renblurv2 = createGraphics(canx/2, cany/2, WEBGL); //
   rendisp2 = createGraphics(planex, planex, WEBGL); //
+
+  setAttributes('antialias', false);
+  setAttributes('alpha', false);
+  setAttributes('preserveDrawingBuffer', false);
+  gl = this._renderer.GL;
+  gl.disable(gl.DEPTH_TEST);
   
 }
 
