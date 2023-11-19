@@ -1,8 +1,50 @@
-html, body {
-  margin: 0;
-  padding: 0;
+body {
+
+    position: fixed;
+    z-index: 999999;
+    margin: 0px;
+	font-size: 12pt;
+	font-family: 'Garamond';
+    color: white;
 }
+
+div {
+      margin: 60px;
+}
+	p {
+		font-size: 12pt;
+    width: 400px;
+    margin-left: 32px;
+      
+  }
+	h1 {
+    font-size: 24pt;
+    font-weight: 200;
+  }
+
+	a {
+	  color: white !important;
+  	text-decoration: underline !important;
+	}
+
+
+details > summary {
+    list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+details > summary::before {
+    content: '⸺ ';
+}
+
 canvas {
-  display: block;
-  
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  scale: 1;
 }
