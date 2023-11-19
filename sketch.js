@@ -38,7 +38,6 @@ function setup() {
 }
 
 function draw() {
-  console.log(frameRate());
   
   rensphere.strokeWeight(.65);
   rensphere.stroke(224,255,255);
