@@ -6,6 +6,8 @@ let shaderdisp;
 
 function preload() {
   img = loadImage('amarillox.jpg');
+  blurimg = loadImage('amarilloblur.jpg');
+
   
   shaderblurh2 = loadShader('base.vert', 'blur.frag');
   shaderblurv2 = loadShader('base.vert', 'blur.frag');
@@ -24,51 +26,42 @@ function setup() {
   setAttributes('version', 1);
 
   crop = 50;
-  canx = 600;
-  cany = 900;
+  canx = 800;
+  cany = 1200;
   planex = canx - crop * 2;
   planey = cany - crop * 2;
   
   createCanvas(canx, cany, WEBGL);
   rensphere = createGraphics(canx, cany, WEBGL);
-  rensphere2 = createGraphics(canx, cany, WEBGL);
-  renblurh2 = createGraphics(canx, cany, WEBGL); //
-  renblurv2 = createGraphics(canx, cany, WEBGL); //
+  rensphere2 = createGraphics(canx/4, cany/4, WEBGL);
   rendisp2 = createGraphics(planex, planex, WEBGL); //
 }
 
 function draw() {
+  console.log(frameRate());
   
+  rensphere.strokeWeight(.65);
+  rensphere.stroke(224,255,255);
   rensphere.clear();
   rensphere.texture(img);
-  rensphere.strokeWeight(.65);
   rensphere.sphere(1000);
-  rensphere.rotateY(.002);
+  rensphere.rotateY(.005);
   
   rensphere2.clear();
-  rensphere2.texture(img);
+  rensphere2.texture(blurimg);
   rensphere2.noStroke();
 //  rensphere2.strokeWeight(.65);
   rensphere2.sphere(1000);
   rensphere2.rotateY(-.001);
   
-  renblurh2.shader(shaderblurh2);
-  shaderblurh2.setUniform('tex0', rensphere);
-  shaderblurh2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
-  shaderblurh2.setUniform('direction', [0.0, 1.0]);
-  renblurh2.rect(0, 0, planex, planey);
-  renblurv2.shader(shaderblurv2);
-  shaderblurv2.setUniform('tex0', renblurh2);
-  shaderblurv2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
-  shaderblurv2.setUniform('direction', [1.0, 0.0]);
-  renblurv2.rect(0, 0, planex, planey);
+  image(rensphere, -canx/2, -cany/2, canx, cany);
   
   rendisp2.shader(shaderdisp);
-  shaderdisp.setUniform('tex0', renblurv2);
-  shaderdisp.setUniform('tex1', rensphere2);
+  shaderdisp.setUniform('tex0', rensphere2);
+  shaderdisp.setUniform('tex1', rensphere);
   shaderdisp.setUniform('amt', .025);
   rendisp2.rect(0, 0, -canx, -cany);
 
-  image(rensphere, -canx/2, -cany/2, canx, cany);
-  image(rendisp2, planex/2, -planey/2, -planex, planey);
+  image(rendisp2, -planex/2, -planey/2, planex, planey);
+
 }
