@@ -49,6 +49,7 @@ function draw() {
   rensphere2.clear();
   rensphere2.texture(img);
   rensphere2.noStroke();
+//  rensphere2.strokeWeight(.65);
   rensphere2.sphere(1000);
   rensphere2.rotateY(-.001);
   
@@ -66,9 +67,9 @@ function draw() {
   rendisp2.shader(shaderdisp);
   shaderdisp.setUniform('tex0', renblurv2);
   shaderdisp.setUniform('tex1', rensphere2);
-  shaderdisp.setUniform('amt', .02);
+  shaderdisp.setUniform('amt', .025);
   rendisp2.rect(0, 0, -canx, -cany);
 
   image(rensphere, -canx/2, -cany/2, canx, cany);
-  image(rendisp2, -planex/2, -planey/2, planex, planey);
+  image(rendisp2, planex/2, -planey/2, -planex, planey);
 }
