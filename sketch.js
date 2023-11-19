@@ -4,8 +4,17 @@ let shaderblurh2;
 let shaderblurv2;
 let shaderdisp;
 
+function preload() {
+  img = loadImage('amarillox.jpg');
+  
+  shaderblurh2 = loadShader('base.vert', 'blur.frag');
+  shaderblurv2 = loadShader('base.vert', 'blur.frag');
+  shaderdisp = loadShader('disp.vert', 'disp.frag');
+  
+}
+
 function setup() {
-//  pixelDensity(1);
+  pixelDensity(1);
   setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
@@ -13,13 +22,7 @@ function setup() {
   setAttributes('preserveDrawingBuffer', false);
   setAttributes('perPixelLighting', false);
   setAttributes('version', 1);
-  
-  img = loadImage('amarillox.jpg');
-  
-  shaderblurh2 = loadShader('base.vert', 'blur.frag');
-  shaderblurv2 = loadShader('base.vert', 'blur.frag');
-  shaderdisp = loadShader('disp.vert', 'disp.frag');
-  
+
   crop = 50;
   canx = 800;
   cany = 1200;
