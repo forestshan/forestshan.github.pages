@@ -36,6 +36,10 @@ function setup() {
   
   setAttributes('antialias', false);
   setAttributes('alpha', false);
+  setAttributes('depth', false);
+  setAttributes('stencil', false);
+  setAttributes('preserveDrawingBuffer', false);
+  setAttributes('perPixelLighting', false);
   setAttributes('version', 1);
   gl = this._renderer.GL;
   gl.disable(gl.DEPTH_TEST);
