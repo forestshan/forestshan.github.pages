@@ -1,3 +1,5 @@
+p5.disableFriendlyErrors = true;
+
 let crop;
 
 let shaderblurh2;
@@ -15,7 +17,7 @@ function preload() {
 }
 
 function setup() {
-
+  
   pixelDensity(1)
   
   crop = 50;
@@ -31,16 +33,17 @@ function setup() {
   renblurh2 = createGraphics(canx/2, cany/2, WEBGL); //
   renblurv2 = createGraphics(canx/2, cany/2, WEBGL); //
   rendisp2 = createGraphics(planex, planex, WEBGL); //
-
+  
   setAttributes('antialias', false);
   setAttributes('alpha', false);
-  setAttributes('preserveDrawingBuffer', false);
+  setAttributes('version', 1);
   gl = this._renderer.GL;
   gl.disable(gl.DEPTH_TEST);
   
 }
 
 function draw() {
+  console.log(frameRate());
 //  background(0);
 
 //  noStroke();
