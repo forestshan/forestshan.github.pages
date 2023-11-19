@@ -5,7 +5,7 @@ let shaderblurv2;
 let shaderdisp;
 
 function setup() {
-  pixelDensity(1);
+//  pixelDensity(1);
   setAttributes('antialias', false);
   setAttributes('alpha', false);
   setAttributes('depth', false);
