@@ -15,7 +15,7 @@ div {
 }
 	p {
 		font-size: 12pt;
-    width: 500px;
+    width: 400px;
     margin-left: 32px;
       
   }
@@ -53,6 +53,7 @@ details > summary::before {
 }
 
 canvas {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
