@@ -29,7 +29,7 @@ function setup() {
   planex = canx - crop * 2;
   planey = cany - crop * 2;
   
-  createCanvas(canx, cany);
+  createCanvas(canx, cany, WEBGL);
   rensphere = createGraphics(canx, cany, WEBGL);
   renblurh2 = createGraphics(canx, cany, WEBGL); //
   renblurv2 = createGraphics(canx, cany, WEBGL); //
@@ -37,6 +37,14 @@ function setup() {
 
 function draw() {
 //  console.log(frameRate());
+  
+  push();
+  rotateY(frameCount * 0.0005 + 20);
+  texture(img);
+  
+  stroke('white');
+  sphere(1000);
+  pop();
   
   rensphere.clear();
   rensphere.texture(img);
@@ -48,12 +56,12 @@ function draw() {
   shaderblurh2.setUniform('tex0', rensphere);
   shaderblurh2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurh2.setUniform('direction', [0.0, 1.0]);
-  renblurh2.rect(0, 0, canx/2, cany/2);
+  renblurh2.rect(0, 0, canx, cany);
   renblurv2.shader(shaderblurv2);
   shaderblurv2.setUniform('tex0', renblurh2);
   shaderblurv2.setUniform('texelSize', [1.0/canx, 1.0/cany]);
   shaderblurv2.setUniform('direction', [1.0, 0.0]);
-  renblurv2.rect(0, 0, canx/2, cany/2);
+  renblurv2.rect(0, 0, canx, cany);
   
-  image(renblurv2, 0, 0, canx, cany);
+  image(rensphere, -planex/2, -planey/2, planex, planey);
 }
