@@ -43,14 +43,14 @@ function draw() {
   rensphere.clear();
   rensphere.texture(img);
   rensphere.sphere(1500);
-  rensphere.rotateY(.005);
+  rensphere.rotateY(.0005);
   
   rensphere2.clear();
   rensphere2.texture(blurimg);
   rensphere2.noStroke();
 //  rensphere2.strokeWeight(.65);
   rensphere2.sphere(1500);
-  rensphere2.rotateY(-.001);
+  rensphere2.rotateY(-.0001);
   
   image(rensphere, -canx/2, -cany/2, canx, cany);
   
