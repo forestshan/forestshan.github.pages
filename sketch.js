@@ -1,67 +1,82 @@
-p5.disableFriendlyErrors = true;
 
-let shaderblurh2;
-let shaderblurv2;
-let shaderdisp;
 
-function preload() {
-  img = loadImage('amarillo.jpeg');
-  blurimg = loadImage('amarilloblur.jpg');
 
-  shaderdisp = loadShader('disp.vert', 'disp.frag');
-  
-}
+// init
 
-function setup() {
-  pixelDensity(1);
-  setAttributes('antialias', false);
-  setAttributes('alpha', false);
-  setAttributes('depth', false);
-  setAttributes('stencil', false);
-  setAttributes('preserveDrawingBuffer', false);
-  setAttributes('perPixelLighting', false);
-  setAttributes('version', 1);
+const camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 0.01, 10 );
+const clipcamera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 1000 );
 
-  crop = 100;
-  canx = 1200;
-  cany = 1200;
-  planex = canx - crop * 2;
-  planey = cany - crop * 2;
-  
-  createCanvas(canx, cany, WEBGL);
-  rensphere = createGraphics(canx, cany, WEBGL);
-  rensphere2 = createGraphics(canx/4, cany/4, WEBGL);
-  rendisp2 = createGraphics(planex, planex, WEBGL);
-  
+camera.position.z = .6;
+//camera.position.x = 2;
+//camera.position.y = 3;
+//camera.lookAt(0,0,0);
+clipcamera.position.z = .6;
+clipcamera.lookAt(0,0,0);
+var helper = new THREE.CameraHelper( clipcamera );
 
-}
+var frustum = new THREE.Frustum();
+frustum.setFromProjectionMatrix(
+new THREE.Matrix4().multiplyMatrices(clipcamera.projectionMatrix, clipcamera.matrixWorldInverse));
 
-function draw() {
-//  console.log(frameRate());
-  
-  rensphere.noStroke();
-  rensphere.strokeWeight(.65);
-  rensphere.stroke(224,255,255);
-  rensphere.clear();
-  rensphere.texture(img);
-  rensphere.sphere(1500);
-  rensphere.rotateY(-.0005);
-  
-  rensphere2.clear();
-  rensphere2.texture(blurimg);
-  rensphere2.noStroke();
-//  rensphere2.strokeWeight(.65);
-  rensphere2.sphere(1500);
-  rensphere2.rotateY(.0001);
-  
-  image(rensphere, -canx/2, -cany/2, canx, cany);
-  
-  rendisp2.shader(shaderdisp);
-  shaderdisp.setUniform('tex0', rensphere2);
-  shaderdisp.setUniform('tex1', rensphere);
-  shaderdisp.setUniform('amt', .02);
-  rendisp2.rect(0, 0, -canx, -cany);
+const scene = new THREE.Scene();
 
-  image(rendisp2, -planex/2, -planey/2, planex, planey);
+const geometry = new THREE.SphereGeometry(1, 50, 30);
+const geometrymesh = new THREE.SphereGeometry(.98, 50, 30);
+const geometry2 = new THREE.SphereGeometry(.95, 220, 120);
 
+//geometry.translate(1,0,0);
+//geometry2.translate(1,0,0);
+
+var texture = new THREE.TextureLoader().load( "https://raw.githubusercontent.com/forestshan/forestshan.github.pages/3a87806e16755c118778a8a1f47d630bb4e49cb5/amarillo.jpg", THREE.UVMapping );
+var material = new THREE.MeshBasicMaterial({
+  map: texture,
+  side: THREE.BackSide,
+//  wireframe: true
+//  clippingPlanes: frustum.planes
+});
+
+var wiremat = new THREE.MeshBasicMaterial({
+  side: THREE.BackSide,
+  wireframe: true,
+//  wireframeLinewidth: .5
+//  clippingPlanes: frustum.planes
+});
+
+const blurTexture = new THREE.TextureLoader().load("https://raw.githubusercontent.com/forestshan/forestshan.github.pages/3a87806e16755c118778a8a1f47d630bb4e49cb5/amarilloblur.jpg", THREE.UVMapping );
+
+const material2 = new THREE.MeshPhysicalMaterial({
+  normalMap: blurTexture,
+    roughness: 1,
+    transmission: 1,
+    clearcoat: 0,
+    thickness: .03,
+    reflectivity: 0,
+    side: THREE.BackSide,
+    ior: 1,
+    metalness: 0,
+    specularIntensity: 0,
+    sheen: 0,
+    clippingPlanes: frustum.planes
+});
+
+const wiremesh = new THREE.Mesh( geometrymesh, wiremat );
+const mesh = new THREE.Mesh( geometry, material );
+const mesh2 = new THREE.Mesh( geometry2, material2 );
+
+scene.add( mesh, mesh2 );
+
+const renderer = new THREE.WebGLRenderer( { antialias: true } );
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setAnimationLoop( animation );
+renderer.localClippingEnabled = true;
+
+
+// animation
+function animation( time ) {
+  mesh.rotation.y = Math.sin(time * .00002) * 5 - 3;
+  wiremesh.rotation.y = Math.sin(time * .00002) * 5 - 3;
+  mesh2.rotation.y = -Math.sin(time * .00002) * 5;
+
+  renderer.render( scene, camera );
+  document.body.appendChild( renderer.domElement );
 }
