@@ -1,0 +1,108 @@
+@font-face {
+    font-family: ETbb-Regular;
+    src: url("ETbb-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: ETbb-Bold;
+    src: url("ETbb-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: ETbb-Italic;
+    src: url("ETbb-Italic.otf") format("opentype");
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    font-size: 1.5vw !important;
+    line-height: 1.5vw !important;
+  }
+  p {
+    font-size: 1.5vw !important;
+  }
+  h1 {
+    font-size: 3vw !important;
+  }
+}
+@media screen and (max-width:400px){
+  div {
+  margin: 9vh !important;
+}
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 999999;
+    font-size: 2.5vw;
+    font-family: 'ETbb-Regular';
+    line-height: 2.5vw;
+    color: white;
+}
+body span {
+//      background-color: white;
+    }
+
+i {
+    font-family: ETbb-Italic;
+}
+
+div {
+  margin: 11vh;
+}
+
+canvas {
+  max-width: 100vw;
+  max-height: 100svh;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  scale: 1;
+}
+
+p {
+  
+    margin-left: 5vw;
+    font-size: 2.5vw;
+    max-width: 50vw;
+  
+  }
+
+p span {
+//      background-color: white;
+    }
+
+h1 {
+    font-size: 5vw;
+  }
+
+h1 span {
+//      background-color: white;
+    font-family: 'ETbb-Regular';
+    }
+
+a {
+      color: white !important;
+    text-decoration: underline !important;
+    }
+
+summary span {
+//      background-color: white;
+    }
+
+details > summary {
+    list-style-type: none;
+  
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+  
+}
+
+details > summary::before {
+    content: '⸺ ';
+ //         background-color: white;
+}
